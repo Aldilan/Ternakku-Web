@@ -32,26 +32,27 @@
                     <div class="container-fluid">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-success">Add Product</h6>
+                                <h6 class="m-0 font-weight-bold text-success">Update Product</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <form action="{{ url('product') }}" method="post"
+                                        <form action="{{ url('product/' . $product['id']) }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
+                                            @method('put')
                                             <div class="mb-3">
                                                 <label class="form-label" for="photo">Insert Photo</label>
                                                 </br>
                                                 <input type="file"
                                                     class="form-control @error('photo') is-invalid @enderror"
-                                                    name="photo" id="photo">
+                                                    name="photo" id="photo" value="{{ $product->product_image }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="name">Product Name</label>
                                                 <input type="text"
                                                     class="form-control @error('name') is-invalid @enderror"
-                                                    name="name" id="name">
+                                                    name="name" id="name" value="{{ $product->product_name }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="category">Category</label>
@@ -67,33 +68,36 @@
                                                 <label class="form-label" for="description">Description</label>
                                                 <input type="text"
                                                     class="form-control @error('description') is-invalid @enderror"
-                                                    name="description" id="description">
+                                                    name="description" id="description"
+                                                    value="{{ $product->description }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="stock">Stock</label>
                                                 <input type="number"
                                                     class="form-control @error('stock') is-invalid @enderror"
-                                                    name="stock" id="stock">
+                                                    name="stock" id="stock" value="{{ $product->product_stock }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="buyingPrice">Buying Price</label>
                                                 <input type="number"
                                                     class="form-control @error('buyingPrice') is-invalid @enderror"
-                                                    name="buyingPrice" id="buyingPrice">
+                                                    name="buyingPrice" id="buyingPrice"
+                                                    value="{{ $product->buying_price }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="basePrice">Base Price</label>
                                                 <input type="number"
                                                     class="form-control @error('basePrice') is-invalid @enderror"
-                                                    name="basePrice" id="basePrice">
+                                                    name="basePrice" id="basePrice" value="{{ $product->base_price }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="finalPrice">Final Price</label>
                                                 <input type="number"
                                                     class="form-control @error('finalPrice') is-invalid @enderror"
-                                                    name="finalPrice" id="finalPrice">
+                                                    name="finalPrice" id="finalPrice"
+                                                    value="{{ $product->final_price }}">
                                             </div>
-                                            <button type="submit" class="btn btn-success">Add</button>
+                                            <button type="submit" class="btn btn-success">Update</button>
                                         </form>
                                     </table>
                                 </div>

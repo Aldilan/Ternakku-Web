@@ -57,7 +57,7 @@ class ProductControllerWeb extends Controller
             'base_price' => $request->basePrice,
             'final_price' => $request->finalPrice,
         ]);
-        return redirect()->route('product.index')->with('success', 'Akun berhasil dibuat!');
+        return redirect('product')->with('success', 'Data successfully created!');
     }
 
     /**
@@ -73,7 +73,9 @@ class ProductControllerWeb extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::where('id', $id)->first();
+        $categories = Category::all();
+        return view('modules.product.products.action.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -81,7 +83,32 @@ class ProductControllerWeb extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'photo' => 'required',
+            'name' => 'required',
+            'category' => 'required',
+            'description' => 'required',
+            'stock' => 'required',
+            'buyingPrice' => 'required',
+            'basePrice' => 'required',
+            'finalPrice' => 'required',
+        ]);
+        $productGet =  Product::where('id', $id)->first();
+        Storage::delete('public/images/' . $productGet->photo);
+        $photoName = $request->photo->getClientOriginalName();
+        $photoPath = $request->photo->storeAs('public/images', $photoName);
+        Product::where('id', $id)->update([
+            'product_img' => $photoName,
+            'product_name' => $request->name,
+            'category_id' => $request->category,
+            'description' => $request->description,
+            'product_stock' => $request->stock,
+            'product_sold' => $productGet->product_sold,
+            'buying_price' => $request->buyingPrice,
+            'base_price' => $request->basePrice,
+            'final_price' => $request->finalPrice,
+        ]);
+        return redirect()->route('product.index')->with('success', 'Data successfully changed!');
     }
 
     /**
@@ -93,6 +120,6 @@ class ProductControllerWeb extends Controller
         $productGet =  $product->first();
         Storage::delete('public/images/' . $productGet->foto);
         $productDelete = $product->delete();
-        return redirect('product')->with('success', 'Laporan berhasil dihapus!');
+        return redirect('product')->with('success', 'Data successfully deleted!');
     }
 }

@@ -76,8 +76,8 @@
                                                     <td>{{ $product->base_price }}</td>
                                                     <td>{{ $product->final_price }}</td>
                                                     <td>
-                                                        <img
-                                                            src="{{ url('/storage/images/' . $product->product_img) }}" />
+                                                        <img src="{{ url('/storage/images/' . $product->product_img) }}"
+                                                            class="img-thumbnail" />
                                                     </td>
                                                     <td>
                                                         <form action="{{ url('product/' . $product->id) }}"
@@ -89,8 +89,8 @@
                                                                     class="fa fa-trash"></i></button>
 
                                                         </form>
-                                                        <button class="btn">
-                                                            <a class="fas fa-edit" href="edit-produk.html"></a>
+                                                        <button class="btn"> <a class="fas fa-edit"
+                                                                href="{{ url('product/' . $product->id . '/edit') }}"></a>
                                                         </button>
                                                     </td>
                                                 </tr>
