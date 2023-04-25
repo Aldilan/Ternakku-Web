@@ -40,11 +40,11 @@
                                         <form action="{{ url('product') }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
-                                            <div class="mb-3">
-                                                <label class="form-label" for="photo">Insert Photo</label>
+                                            <div class="custom-file mb-3">
+                                                <label class="custom-file-label" for="photo">Insert Photo</label>
                                                 </br>
                                                 <input type="file"
-                                                    class="form-control @error('photo') is-invalid @enderror"
+                                                    class="custom-file-input @error('photo') is-invalid @enderror"
                                                     name="photo" id="photo">
                                             </div>
                                             <div class="mb-3">

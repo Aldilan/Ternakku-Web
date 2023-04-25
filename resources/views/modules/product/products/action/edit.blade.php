@@ -41,11 +41,10 @@
                                             enctype="multipart/form-data">
                                             @csrf
                                             @method('put')
-                                            <div class="mb-3">
-                                                <label class="form-label" for="photo">Insert Photo</label>
-                                                </br>
+                                            <div class="custom-file mb-3">
+                                                <label class="custom-file-label" for="photo">Insert Photo</label>
                                                 <input type="file"
-                                                    class="form-control @error('photo') is-invalid @enderror"
+                                                    class="custom-file-input @error('photo') is-invalid @enderror"
                                                     name="photo" id="photo" value="{{ $product->product_image }}">
                                             </div>
                                             <div class="mb-3">

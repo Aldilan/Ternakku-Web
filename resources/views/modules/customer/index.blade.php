@@ -42,24 +42,35 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Name Lengkap</th>
-                                            <th>Email</th>
+                                            <th>Name</th>
                                             <th>Username</th>
-                                            <th>No Hp</th>
-                                            <th>Alamat</th>
-
+                                            <th>Phone Number</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($users as $user)
+                                            <tr>
+                                                <td>{{ $user->nama_pengguna }}</td>
+                                                <td>{{ $user->username }}</td>
+                                                <td>{{ $user->no_telp }}</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>
+                                                    <form action="{{ url('customer/' . $user->id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="btn" type="submit"
+                                                            onclick="return confirm('Are you sure you want to delete this data?')"><i
+                                                                class="fa fa-trash"></i></button>
 
-                                        <tr>
-                                            <td>Zorita Serrano</td>
-                                            <td>kyl04@gmail.com</td>
-                                            <td>kenzi</td>
-                                            <td>085891405290</td>
-                                            <td>kp. citeko rt04/rw08 desa citeko</td>
-                                        </tr>
-
+                                                    </form>
+                                                    <button class="btn"> <a class="fas fa-edit"
+                                                            href="{{ url('customer/' . $user->id . '/edit') }}"></a>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -106,6 +117,7 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 
     @include('partials.linkVendor')
 
