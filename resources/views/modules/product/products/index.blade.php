@@ -77,7 +77,8 @@
                                                     <td>{{ $product->final_price }}</td>
                                                     <td>
                                                         <img src="{{ url('/storage/images/' . $product->product_img) }}"
-                                                            class="img-thumbnail" />
+                                                            class="img-thumbnail"
+                                                            alt="{{ $product->product_name . ' picture' }}" />
                                                     </td>
                                                     <td>
                                                         <form action="{{ url('product/' . $product->id) }}"

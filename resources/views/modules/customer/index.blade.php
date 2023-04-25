@@ -42,6 +42,7 @@
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Name</th>
                                             <th>Username</th>
                                             <th>Phone Number</th>
@@ -50,8 +51,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                            $i = 0;
+                                        @endphp
                                         @foreach ($users as $user)
+                                            @php
+                                                $i += 1;
+                                            @endphp
                                             <tr>
+                                                <td>{{ $i }}</td>
                                                 <td>{{ $user->nama_pengguna }}</td>
                                                 <td>{{ $user->username }}</td>
                                                 <td>{{ $user->no_telp }}</td>

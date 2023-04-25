@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
     <title>TernakKu</title>
-
     @include('partials.linkStyle')
 
 </head>
@@ -33,27 +32,30 @@
                     <div class="container-fluid">
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-success">Add Category</h6>
+                                <h6 class="m-0 font-weight-bold text-success">Update Category</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <form action="{{ url('category') }}" method="post"
+                                        <form action="{{ url('category/' . $category['id']) }}" method="post"
                                             enctype="multipart/form-data">
                                             @csrf
+                                            @method('put')
                                             <div class="custom-file mb-3">
                                                 <label class="custom-file-label" for="photo">Insert Photo</label>
                                                 <input type="file"
                                                     class="custom-file-input @error('photo') is-invalid @enderror"
-                                                    name="photo" id="photo">
+                                                    name="photo" id="photo"
+                                                    value="{{ $category->category_image }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="name">Category Name</label>
                                                 <input type="text"
                                                     class="form-control @error('name') is-invalid @enderror"
-                                                    name="name" id="name">
+                                                    name="name" id="name"
+                                                    value="{{ $category->category_name }}">
                                             </div>
-                                            <button type="submit" class="btn btn-success">Add</button>
+                                            <button type="submit" class="btn btn-success">Update</button>
                                         </form>
                                     </table>
                                 </div>
@@ -91,9 +93,9 @@
             </div>
         </div>
     </div>
-
     @include('partials.linkVendor')
 
+    @include('sweetalert::alert')
 
 </body>
 
