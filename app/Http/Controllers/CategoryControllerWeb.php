@@ -22,7 +22,7 @@ class CategoryControllerWeb extends Controller
      */
     public function create()
     {
-        return view('modules.category.action.create');
+        // return view('modules.category.action.create');
     }
 
     /**
@@ -30,18 +30,18 @@ class CategoryControllerWeb extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'photo' => 'required',
-            'name' => 'required',
-        ]);
+        // $this->validate($request, [
+        //     'photo' => 'required',
+        //     'name' => 'required',
+        // ]);
 
-        $photoName = $request->photo->getClientOriginalName();
-        $photoPath = $request->photo->storeAs('public/images', $photoName);
-        Category::create([
-            'category_image' => $photoName,
-            'category_name' => $request->name,
-        ]);
-        return redirect('category')->with('success', 'Data successfully created!');
+        // $photoName = $request->photo->getClientOriginalName();
+        // $photoPath = $request->photo->storeAs('public/images', $photoName);
+        // Category::create([
+        //     'category_image' => $photoName,
+        //     'category_name' => $request->name,
+        // ]);
+        // return redirect('category')->with('success', 'Data successfully created!');
     }
 
     /**
@@ -86,11 +86,11 @@ class CategoryControllerWeb extends Controller
      */
     public function destroy(string $id)
     {
-        $category =  Category::where('id', $id);
-        $categoryGet =  $category->first();
-        // Storage::delete('public/images/' . $userGet->foto);
-        $categoryDelete = $category->delete();
-        return redirect('category')->with('success', 'Data successfully deleted!');
+        // $category =  Category::where('id', $id);
+        // $categoryGet =  $category->first();
+        // // Storage::delete('public/images/' . $userGet->foto);
+        // $categoryDelete = $category->delete();
+        // return redirect('category')->with('success', 'Data successfully deleted!');
         //
     }
 }

@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
             'nama_pengguna' => 'Aldilan',
             'email' => 'aldilan108@nittech.com',
             'no_telp' => '085171155357',
+            'phone_id' => "09fjo2i3r0"
         ]);
     }
 }

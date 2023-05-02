@@ -35,7 +35,8 @@ class UserControllerApi extends Controller
                 "password" => bcrypt($request->password),
                 "nama_pengguna" => $request->nama_pengguna,
                 "email" => $request->email,
-                "no_telp" => $request->no_telp
+                "no_telp" => $request->no_telp,
+                "phone_id" => ''
             ]);
             return response()->json(["status" => "berhasil", "pesan" => "Pengguna berhasil dibuat"]);
         } else {

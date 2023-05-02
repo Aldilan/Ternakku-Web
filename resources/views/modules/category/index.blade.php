@@ -33,7 +33,7 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Categories</h1>
-                        <a class="btn btn-success mx-4" href="{{ url('category/create') }}">Add Category</a>
+                        {{-- <a class="btn btn-success mx-4" href="{{ url('category/create') }}">Add Category</a> --}}
                     </div>
 
                     <div class="container-fluid">
@@ -72,10 +72,10 @@
                                                     <td>{{ $category->category_name }}</td>
                                                     <td>
                                                         <img src="{{ url('/storage/images/' . $category->category_image) }}"
-                                                            class="img-thumbnail"
+                                                            class="img-thumbnail img"
                                                             alt="{{ $category->category_name . ' picture' }}" />
                                                     <td>
-                                                        <form action="{{ url('category/' . $category->id) }}"
+                                                        {{-- <form action="{{ url('category/' . $category->id) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('delete')
@@ -83,7 +83,7 @@
                                                                 onclick="return confirm('Are you sure you want to delete this data?')"><i
                                                                     class="fa fa-trash"></i></button>
 
-                                                        </form>
+                                                        </form> --}}
                                                         <button class="btn"> <a class="fas fa-edit"
                                                                 href="{{ url('category/' . $category->id . '/edit') }}"></a>
                                                         </button>

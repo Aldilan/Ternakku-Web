@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnalyticControllerWeb;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthControllerWeb;
 use App\Http\Controllers\ProductControllerWeb;
@@ -7,6 +8,7 @@ use App\Http\Controllers\CategoryControllerWeb;
 use App\Http\Controllers\UserControllerWeb;
 use App\Http\Controllers\TransactionControllerWeb;
 use App\Http\Controllers\ReviewControllerWeb;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,4 @@ Route::resource('category', CategoryControllerWeb::class)->middleware('auth:admi
 Route::resource('customer', UserControllerWeb::class)->middleware('auth:admin');
 Route::resource('order', TransactionControllerWeb::class)->middleware('auth:admin');
 Route::resource('rating', ReviewControllerWeb::class)->middleware('auth:admin');
-
-Route::get('/analytic', function () {
-    return view('modules.analytic.index');
-})->name('dashboard')->middleware('auth:admin');;
+Route::resource('analytic', AnalyticControllerWeb::class)->middleware('auth:admin');
