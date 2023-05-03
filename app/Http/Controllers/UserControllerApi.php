@@ -49,7 +49,11 @@ class UserControllerApi extends Controller
      */
     public function show(string $id)
     {
-        //
+        $foundUser = User::where('phone_id', $id)->first();
+        if ($foundUser != null) {
+            return response()->json(["status" => "berhasil", "pesan" => "Pengguna berhasil dibuat", "data" => $foundUser]);
+        }
+        return response()->json(["status" => "gagal", "pesan" => "Gagal masuk, silakan coba lagi!"]);
     }
 
     /**

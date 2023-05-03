@@ -43,7 +43,7 @@ class AuthControllerWeb extends Controller
             $hashCheck = Hash::check($credentials['password'], $foundUser->password);
             if ($hashCheck) {
                 if (Auth::guard('admin')->attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
-                    return redirect()->route('dashboard')->with('success', 'Berhasil login!');
+                    return redirect()->route('index')->with('success', 'Berhasil login!');
                 }
             }
         }

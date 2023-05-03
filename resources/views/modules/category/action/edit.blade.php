@@ -50,10 +50,11 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="name">Category Name</label>
+                                                <input type="hidden" value="{{ $category->category_name }}"
+                                                    name="name" id="name">
                                                 <input type="text"
                                                     class="form-control @error('name') is-invalid @enderror"
-                                                    name="name" id="name"
-                                                    value="{{ $category->category_name }}">
+                                                    value="{{ $category->category_name }}" disabled>
                                             </div>
                                             <button type="submit" class="btn btn-success">Update</button>
                                         </form>
@@ -64,7 +65,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>admin
 
     </div>
     <!-- End of Page Wrapper -->

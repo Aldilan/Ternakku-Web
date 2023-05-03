@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthControllerApi;
+use App\Http\Controllers\CartsControllerApi;
 use App\Http\Controllers\CategoryControllerApi;
+use App\Http\Controllers\ProductControllerApi;
 use App\Http\Controllers\UserControllerApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +29,5 @@ Route::post('validate/user', [AuthControllerApi::class, 'ValidateUser']);
 Route::post('logout/user', [AuthControllerApi::class, 'LogoutUser']);
 Route::apiResource('users', UserControllerApi::class);
 Route::apiResource('categories', CategoryControllerApi::class);
+Route::apiResource('products', ProductControllerApi::class);
+Route::apiResource('carts', CartsControllerApi::class);

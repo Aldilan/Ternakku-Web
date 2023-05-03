@@ -23,12 +23,6 @@
         </a>
 
     </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ url('analytic') }}">
-            <span>Analytics</span></a>
-
-    </li>
-
 
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
